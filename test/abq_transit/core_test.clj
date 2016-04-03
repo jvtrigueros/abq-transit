@@ -25,10 +25,23 @@
   (zx/xml1-> loc
              :Document))
 
-(deftest route-number-test
+(deftest route-test
   (testing "Verify that route number is 2."
     (is (= 2 (route (document @kml-route))))))
 
 (deftest heading-test
   (testing "Verify that route heading is 351."
     (is (= 351 (heading (document @kml-route))))))
+
+(deftest coordinates-test
+  (testing "Verify that lon,lat is \"-106.53985,35.15105\"."
+    (is (= "-106.53985" (first (coordinates (document @kml-route)))))
+    (is (= "35.15105" (last (coordinates (document @kml-route)))))))
+
+(deftest lon-test
+  (testing "Verify that lon is -106.53985."
+    (is (= -106.53985 (lon (document @kml-route))))))
+
+(deftest lat-test
+  (testing "Verify that lat is 35.15105."
+    (is (= 35.15105 (lat (document @kml-route))))))

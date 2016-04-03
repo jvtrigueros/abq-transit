@@ -27,12 +27,9 @@
       parse-int))
 
 (defn coordinates [loc]
-  (xml1-> loc
-          :Placemark
-          :Point
-          :coordinates
-          text
-          str/split ","))
+  (-> loc
+      (xml1-> :Placemark :Point :coordinates text)
+      (str/split #",")))
 
 (defn lon [loc]
   (-> loc
