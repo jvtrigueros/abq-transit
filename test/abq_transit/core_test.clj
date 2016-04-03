@@ -25,6 +25,10 @@
   (zx/xml1-> loc
              :Document))
 
-(deftest route-number
+(deftest route-number-test
   (testing "Verify that route number is 2."
     (is (= 2 (route (document @kml-route))))))
+
+(deftest heading-test
+  (testing "Verify that route heading is 351."
+    (is (= 351 (heading (document @kml-route))))))

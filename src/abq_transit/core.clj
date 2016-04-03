@@ -22,13 +22,9 @@
     parse-int))
 
 (defn heading [loc]
-  (xml1-> loc
-          :Placemark
-          :Style
-          :IconStyle
-          :heading
-          text
-          parse-int))
+  (-> loc
+      (xml1-> :Placemark :Style :IconStyle :heading text)
+      parse-int))
 
 (defn coordinates [loc]
   (xml1-> loc
