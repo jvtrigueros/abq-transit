@@ -1,8 +1,8 @@
 (ns abq-transit.parse
   (:require [clojure.xml :as xml]
-    [clojure.zip :as zip]
-    [clojure.string :as str]
-    [clojure.data.zip.xml :refer [xml1-> text]])
+            [clojure.zip :as zip]
+            [clojure.string :as str]
+            [clojure.data.zip.xml :refer [xml1-> text]])
   (:import (java.io InputStream)))
 
 (defn- parse-int [^String s]
@@ -16,27 +16,27 @@
       parse-int))
 
 (defn heading [loc]
-  (-> loc
-      (xml1-> :Placemark :Style :IconStyle :heading text)
-      parse-int))
+  (some-> loc
+          (xml1-> :Placemark :Style :IconStyle :heading text)
+          parse-int))
 
 (defn coordinates [loc]
-  (-> loc
-      (xml1-> :Placemark :Point :coordinates text)
-      (str/split #",")))
+  (some-> loc
+          (xml1-> :Placemark :Point :coordinates text)
+          (str/split #",")))
 
 (defn lon [loc]
-  (-> loc
-      coordinates
-      first
-      read-string))
+  (some-> loc
+          coordinates
+          first
+          read-string))
 
 
 (defn lat [loc]
-  (-> loc
-      coordinates
-      second
-      read-string))
+  (some-> loc
+          coordinates
+          second
+          read-string))
 
 
 (defn parse-transit-kml
