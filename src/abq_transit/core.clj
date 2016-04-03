@@ -16,10 +16,10 @@
 
 (defn route [loc]
   (-> loc
-    (xml1-> :Name text)
-    (str/split #"\s")
-    last
-    parse-int))
+      (xml1-> :Name text)
+      (str/split #"\s")
+      last
+      parse-int))
 
 (defn heading [loc]
   (-> loc
@@ -54,8 +54,7 @@
                         xml/parse
                         zip/xml-zip)
         document (xml1-> transit-zip :Document)]
-
-    {:route (route document)
+    {:route   (route document)
      :heading (heading document)
-     :lon (lon document)
-     :lat (lat document)}))
+     :lon     (lon document)
+     :lat     (lat document)}))
