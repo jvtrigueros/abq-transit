@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Name>Route 2</Name>
+    <Style id="NoDir">
+      <BalloonStyle>
+        <bgColor>ffffff</bgColor>
+        <text><![CDATA[
+          <font color="000000"><h2>$[name]</h2></font>
+          <font>$[description]</font>
+        ]]></text>
+      </BalloonStyle>
+    </Style>
+    <Placemark>
+      <name>2</name>
+      <description>
+        <table border="1" width="200" bgcolor="ffffff" cellspacing="0">
+          <tr>
+            <td width="35%">Vehicle #</td>
+            <td>756</td>
+          </tr>
+          <tr>
+            <td>Speed</td>
+            <td>11.2 MPH</td>
+          </tr>
+          <tr>
+            <td>Msg Time</td>
+            <td>6:29:56 PM</td>
+          </tr>
+          <tr>
+            <td>Next Stop      </td>
+            <td>Academy @ Concordia scheduled at 6:29 PM</td>
+          </tr>
+        </table>
+      </description>
+      <styleUrl>#NoDir</styleUrl>
+      <Style>
+        <IconStyle>
+          <heading>351</heading>
+          <scale>0.7</scale>
+          <Icon><href>http://data.cabq.gov/transit/realtime/image/bus2.jpg</href></Icon>
+        </IconStyle>
+      </Style>
+      <Point>
+        <coordinates>-106.53985,35.15105</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

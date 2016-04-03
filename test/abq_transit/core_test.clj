@@ -22,5 +22,5 @@
 (use-fixtures :once load-kml-route)
 
 (deftest route-number
-  (testing "Verify that route number is correct."
+  (testing "Verify that route number is 2."
     (is (= 2 (route (zx/xml1-> @kml-route :Document))))))
