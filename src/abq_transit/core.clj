@@ -1,7 +1,14 @@
 (ns abq-transit.core
-  (:gen-class))
+  (:gen-class)
+  (:use [clojure.pprint])
+  (:require [clojure.java.io :as io]
+            [abq-transit.parse :as transit-parse]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Given a list of URLs, parse KML."
   [& args]
-  (println "Hello, World!"))
+  (doseq [route-url args]
+    (with-open [route (-> route-url
+                          io/input-stream)]
+      (pprint (transit-parse/parse-transit-kml route)))))
+
