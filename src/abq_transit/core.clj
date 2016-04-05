@@ -11,7 +11,7 @@
 
 (kore/defentity routes)
 
-(defn- read-config [config-path]
+(defn read-config [config-path]
   (edn/read-string (slurp config-path)))
 
 (defn -main
