@@ -15,12 +15,12 @@
   (edn/read-string (slurp config-path)))
 
 (defn -main
-  "Given a list of URLs, parse KML."
+  "Given a configuration file, parse KML and insert into a DB."
   [& args]
   (if-let [config-path (first args)]
     (let [config (read-config config-path)
           db (-> (:db config)
-                 db/sqlite3
+                 db/postgres
                  db/create-db
                  db/default-connection)]
       (doseq [route-url (:routes config)]
@@ -29,5 +29,4 @@
           (let [route (transit-parse/parse-transit-kml route-is)]
             (kore/insert routes
                          (kore/values route))))))
-
     (println "Please pass in an EDN configuration file as your first command line argument.")))
