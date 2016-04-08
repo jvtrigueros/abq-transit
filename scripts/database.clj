@@ -16,5 +16,5 @@
 (defn -main [& args]
   (if-let [config-path (first args)]
     (let [config (read-config config-path)]
-      (open-global (db/sqlite3 (:db config)))
+      (open-global (db/postgres (:db config)))
       (create-routes-table))))
