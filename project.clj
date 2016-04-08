@@ -12,4 +12,5 @@
   :source-paths ["src" "scripts"]
   :main ^:skip-aot abq-transit.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :aliases {"create-database" ["run" "-m" "database"]})
