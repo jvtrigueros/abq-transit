@@ -8,7 +8,8 @@
                  [korma "0.4.2"]
                  [org.clojure/java.jdbc "0.3.7"]
                  [lobos "1.0.0-beta3"]
-                 [org.postgresql/postgresql "9.4.1208"]]
+                 [org.postgresql/postgresql "9.4.1208"]
+                 [overtone/at-at "1.2.0"]]
   :source-paths ["src" "scripts"]
   :main ^:skip-aot abq-transit.core
   :target-path "target/%s"
